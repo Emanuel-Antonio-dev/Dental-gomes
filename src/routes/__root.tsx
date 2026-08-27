@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Dentist",
           name: "Clínica Dental Gomes",
-          image: "/favicon.ico",
+          image: "/src/assets/dental.jpeg",
           description: DESCRIPTION,
           address: {
             "@type": "PostalAddress",
