@@ -10,7 +10,7 @@ export function Doctor() {
           <SectionTitle
             eyebrow="Fundadora"
             title={<>Dra. Mirian <span className="italic text-gradient-gold">Gomes</span></>}
-            subtitle="Cirurgiã-dentista com vasta experiência clínica, a Dra. Mirian Gomes lidera a Dental Gomes com uma filosofia clara: unir excelência técnica, tecnologia moderna e uma escuta atenta ao paciente. Cada tratamento é planeado com o rigor da ciência e a sensibilidade de quem entende que um sorriso é único."
+            subtitle="Medica dentista com vasta experiência clínica, a Dra. Mirian Gomes lidera a Dental Gomes com uma filosofia clara: unir excelência técnica, tecnologia moderna e uma escuta atenta ao paciente. Cada tratamento é planeado com o rigor da ciência e a sensibilidade de quem entende que um sorriso é único."
           />
           <div className="mt-10 space-y-4">
             {[
