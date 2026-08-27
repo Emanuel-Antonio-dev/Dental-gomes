@@ -1,6 +1,8 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import smile from "@/assets/smile.jpg";
 import logo from "@/assets/logo.png";
+import team5 from "@/assets/team5.png";
+
 import { Eyebrow, WA } from "../primitives";
 
 export function FinalCTA() {
@@ -9,7 +11,6 @@ export function FinalCTA() {
       <img src={logo} alt="" aria-hidden="true" width={1600} height={1000} loading="lazy" className="absolute inset-0 h-full w-full object-cover opacity-40" />
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, oklch(0.1 0.006 60 / 0.85), oklch(0.1 0.006 60 / 0.95))" }} />
       <div className="relative container-lux text-center max-w-3xl mx-auto">
-        <Eyebrow>Damos vida ao seu sorriso</Eyebrow>
         <h2 className="mt-6 font-serif text-5xl md:text-7xl leading-[1.02]">
           O seu novo sorriso <br /><span className="italic text-gradient-gold">começa hoje.</span>
         </h2>

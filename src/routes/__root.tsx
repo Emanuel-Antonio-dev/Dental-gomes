@@ -61,7 +61,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const TITLE = "Clínica Dental Gomes — Damos vida ao seu sorriso | Luanda, Angola";
+const TITLE = "Clínica Dental Gomes - Damos vida ao seu sorriso";
 const DESCRIPTION =
   "Clínica de medicina dentária premium em Luanda. Atendimento humanizado, tecnologia moderna e especialistas qualificados. Agende a sua consulta com a Dra. Mirian Gomes.";
 

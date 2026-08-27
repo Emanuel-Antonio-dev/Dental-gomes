@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 
-const partners = ["HE Farma", "Cruz Vermelha", "Mood Sniper", "Pantera Jiu Jitsu", "Cantinho do Recreio"];
+// Estrutura de dados com nome e caminho do logo
+const partners = [
+  { name: "HE Farma", logo: "/src/assets/farma.jpg" },
+  { name: "Cruz Vermelha", logo: "/src/assets/cruz.jpg" },
+  { name: "Mood Sniper", logo: "/src/assets/snipper.jpg" },
+  { name: "Pantera Jiu Jitsu", logo: "/src/assets/pantera.png" },
+  { name: "Cantinho do Recreio", logo: "/partners/cantinho-recreio.svg" },
+];
 
 export function Partners() {
   const [slidesPerView, setSlidesPerView] = useState(4);
@@ -19,12 +26,11 @@ export function Partners() {
     return () => window.removeEventListener("resize", updateSlides);
   }, []);
 
-  // Duplica 3 vezes para loop infinito
+  // Duplica 3 vezes para efeito de loop infinito
   const duplicated = [...partners, ...partners, ...partners];
 
-  // Velocidade mais lenta: quanto maior o número, mais devagar
-  // Ajuste este valor para controlar a velocidade (ex: 40 = mais lento)
-  const duration = 40 / slidesPerView; // antes era 25, agora 40
+  // Velocidade mais lenta (quanto maior o número, mais devagar)
+  const duration = 40 / slidesPerView; // ajuste conforme preferência
 
   return (
     <section className="py-20 border-y border-border/60 bg-[color:var(--graphite)]/30">
@@ -46,17 +52,20 @@ export function Partners() {
             {duplicated.map((partner, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 px-6 md:px-8 py-2"
+                className="flex-shrink-0 px-4 md:px-6 py-2 flex items-center justify-center"
                 style={{ width: `${100 / slidesPerView}vw` }}
               >
-                <span className="font-serif text-lg md:text-xl text-muted-foreground/70 hover:text-gold transition-colors">
-                  {partner}
-                </span>
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-12 md:h-16 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
 
-          {/* Gradientes laterais para suavizar */}
+          {/* Gradientes laterais para suavizar o fade */}
           <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[color:var(--graphite)]/30 to-transparent pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[color:var(--graphite)]/30 to-transparent pointer-events-none" />
         </div>

@@ -40,7 +40,7 @@ function LandingPage() {
         <Cases />
         <Testimonials />
         <Team />
-        <Partners />
+        {/* <Partners /> */}
         <Process />
         <FAQ />
         <Contact />

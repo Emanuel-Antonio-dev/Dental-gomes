@@ -26,14 +26,14 @@ export function SectionTitle({
   subtitle,
   center = false,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: ReactNode;
   subtitle?: string;
   center?: boolean;
 }) {
   return (
     <motion.div {...fadeUp} className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
-      <Eyebrow>{eyebrow}</Eyebrow>
+      {/* {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : ""} */}
       <h2 className="mt-5 font-serif text-4xl md:text-5xl leading-[1.05]">{title}</h2>
       {subtitle && (
         <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{subtitle}</p>

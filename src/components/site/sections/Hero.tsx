@@ -1,103 +1,335 @@
 import { motion } from "framer-motion";
-import { ArrowRight, MessageCircle, ChevronDown, Sparkles } from "lucide-react";
-import team2 from "@/assets/team2.png";
-import team3 from "@/assets/team3.png";
-import { Eyebrow, WA } from "../primitives";
+import {
+  ArrowRight,
+  MessageCircle,
+  ChevronDown,
+} from "lucide-react";
+
+import teamHero from "@/assets/hero3.png";
+import { WA } from "../primitives";
 
 export function Hero() {
   return (
-    <section id="top" className="relative min-h-dvh overflow-hidden">
-      {/* Imagem com posicionamento focado no centro-direita para mostrar as três pessoas */}
+    <section
+      id="top"
+      className="relative min-h-dvh overflow-hidden bg-[#061636]"
+    >
+      {/* =====================================================
+          BACKGROUND / TEAM IMAGE
+          ===================================================== */}
       <div className="absolute inset-0">
         <img
-          src={team3}
-          alt=""
-          aria-hidden="true"
-          width={1280}
-          height={852}
+          src={teamHero}
+          alt="Equipa da Clínica Dental Gomes"
+          width={1920}
+          height={1080}
           fetchPriority="high"
-          className="h-full w-full object-cover object-[90%_center] scale-105"        />
-        <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
+          className="
+            absolute inset-0
+            h-full w-full
+            object-cover
+            object-[80%_center]
+            scale-[1.02]
+            md:object-[60%_center]
+            
+          "
+        />
+
+        {/* 
+          Gradiente principal:
+          - muito forte à esquerda para garantir leitura
+          - desaparece progressivamente sobre a equipa
+        */}
         <div
-          className="absolute inset-0 opacity-40 mix-blend-overlay"
-          style={{
-            background:
-              "radial-gradient(1200px 600px at 70% 20%, oklch(0.78 0.14 82 / 0.25), transparent 60%)",
-          }}
+          className="
+            absolute inset-0
+            bg-[linear-gradient(90deg,
+              rgba(4,18,52,1)_0%,
+              rgba(4,18,52,0.98)_25%,
+              rgba(4,18,52,0.82)_42%,
+              rgba(4,18,52,0.35)_58%,
+              rgba(4,18,52,0)_78%
+            )]
+          "
+        />
+
+        {/* 
+          Pequeno reforço vertical para manter a navbar
+          integrada com a hero.
+        */}
+        <div
+          className="
+            absolute inset-0
+            bg-[linear-gradient(180deg,
+              rgba(3,15,40,0.45)_0%,
+              transparent_20%,
+              transparent_75%,
+              rgba(3,15,40,0.35)_100%
+            )]
+          "
+        />
+
+        {/* Glow dourado muito subtil */}
+        <div
+          className="
+            absolute inset-0
+            opacity-40
+            mix-blend-screen
+            bg-[radial-gradient(
+              700px_500px_at_72%_35%,
+              rgba(210,165,75,0.12),
+              transparent_70%
+            )]
+          "
         />
       </div>
 
-      {/* Conteúdo principal */}
-      <div className="relative container-lux flex min-h-dvh flex-col justify-center pb-16 pt-32 md:pb-20">
+      {/* =====================================================
+          MAIN CONTENT
+          ===================================================== */}
+      <div
+        className="
+          relative z-10
+          container-lux
+          flex min-h-dvh
+          items-center
+          pb-20
+          pt-32
+          md:pb-24
+        "
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-3xl"
+          transition={{
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            w-full
+            max-w-[520px]
+            lg:max-w-[560px]
+          "
         >
-          {/* Título com linha animada */}
-          <h1 className="mt-6 font-serif text-5xl leading-[1.02] md:text-7xl lg:text-8xl">
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, x: -15 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.15, duration: 0.7 }}
+            className="mb-5 flex items-center gap-3"
+          >
+          </motion.div>
+
+          {/* =================================================
+              TITLE
+              ================================================= */}
+          <h1
+            className="
+              font-serif
+              text-5xl
+              leading-[0.98]
+              tracking-[-0.025em]
+              text-white
+              sm:text-6xl
+              md:text-7xl
+              lg:text-[76px]
+            "
+          >
             Damos vida
-            <br className="hidden md:block" />
+            <br />
+
             ao seu{" "}
             <span className="relative inline-block">
-              <span className="text-gradient-gold italic">sorriso.</span>
+              <span className="text-gradient-gold italic">
+                sorriso.
+              </span>
+
               <motion.span
-                className="absolute -bottom-1 left-0 h-1 w-full bg-gold/30"
+                className="
+                  absolute
+                  -bottom-1
+                  left-0
+                  h-px
+                  w-full
+                  origin-left
+                  bg-gold/50
+                "
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
+                transition={{
+                  delay: 0.7,
+                  duration: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               />
             </span>
           </h1>
 
-          {/* Subtítulo */}
-          <p className="mt-6 max-w-xl text-base md:text-lg text-white/80 leading-relaxed">
-            Atendimento humanizado, tecnologia avançada e uma equipa de especialistas dedicados
-            ao seu bem-estar. Descubra uma nova experiência em medicina dentária premium.
+          {/* =================================================
+              DESCRIPTION
+              ================================================= */}
+          <p
+            className="
+              mt-6
+              max-w-[500px]
+              text-base
+              leading-relaxed
+              text-white/75
+              md:text-[17px]
+            "
+          >
+            Atendimento humanizado, tecnologia avançada e uma
+            equipa de especialistas dedicados ao seu bem-estar.
+            Descubra uma nova experiência em medicina dentária
+            premium.
           </p>
 
-          {/* Botões de ação */}
+          {/* =================================================
+              CTA
+              ================================================= */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            transition={{
+              delay: 0.4,
+              duration: 0.8,
+            }}
+            className="
+              mt-9
+              flex
+              flex-wrap
+              items-center
+              gap-3
+            "
           >
+            {/* Primary */}
             <a
               href="/#contacto"
-              className="group relative inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-2xl shadow-gold/30 transition-all hover:shadow-gold/50 hover:scale-105 active:scale-95"
+              className="
+                group
+                relative
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                bg-primary
+                px-7
+                py-3.5
+                text-sm
+                font-semibold
+                text-primary-foreground
+                shadow-2xl
+                shadow-gold/20
+                transition-all
+                duration-300
+                hover:scale-[1.03]
+                hover:shadow-gold/40
+                active:scale-[0.98]
+              "
             >
               <span>Agendar Consulta</span>
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-              <span className="absolute -inset-1 rounded-full bg-gold/20 blur-lg transition-opacity group-hover:opacity-100 opacity-0" />
+
+              <ArrowRight
+                size={16}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
+              />
+
+              <span
+                className="
+                  absolute
+                  -inset-1
+                  rounded-full
+                  bg-gold/20
+                  blur-xl
+                  opacity-0
+                  transition-opacity
+                  group-hover:opacity-100
+                "
+              />
             </a>
+
+            {/* WhatsApp */}
             <a
               href={WA}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 backdrop-blur-sm px-8 py-4 text-sm font-medium text-white transition hover:bg-white/10 hover:border-white/50"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-full
+                border
+                border-white/25
+                bg-white/[0.06]
+                px-7
+                py-3.5
+                text-sm
+                font-medium
+                text-white
+                backdrop-blur-md
+                transition-all
+                duration-300
+                hover:border-white/40
+                hover:bg-white/10
+              "
             >
               <MessageCircle size={16} />
+
               <span>Falar no WhatsApp</span>
             </a>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Indicador de scroll animado */}
+      {/* =====================================================
+          SCROLL INDICATOR
+          ===================================================== */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
+        transition={{
+          delay: 1.4,
+          duration: 1,
+        }}
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          z-10
+          flex
+          -translate-x-1/2
+          flex-col
+          items-center
+          gap-2
+          text-white/35
+        "
       >
-        <span className="text-[10px] tracking-[0.3em] uppercase">Explore</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+        <span
+          className="
+            text-[9px]
+            uppercase
+            tracking-[0.35em]
+          "
         >
-          <ChevronDown size={20} strokeWidth={1.5} />
+          Explore
+        </span>
+
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 2,
+            ease: "easeInOut",
+          }}
+        >
+          <ChevronDown
+            size={18}
+            strokeWidth={1.5}
+          />
         </motion.div>
       </motion.div>
     </section>

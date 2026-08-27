@@ -11,7 +11,6 @@ export function About() {
           className="max-w-3xl mx-auto text-center"
         >
           <SectionTitle
-            eyebrow="A Clínica"
             title={
               <>
                 Uma nova forma de cuidar
