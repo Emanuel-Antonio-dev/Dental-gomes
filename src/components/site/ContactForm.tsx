@@ -345,7 +345,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="group relative inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+        className="group relative inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-gold)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {isSubmitting ? (
           <Loader2

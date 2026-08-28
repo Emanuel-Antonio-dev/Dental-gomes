@@ -16,8 +16,8 @@ export function FinalCTA() {
         </h2>
         <p className="mt-6 text-lg text-muted-foreground">Uma equipa premium à sua espera em Luanda. Marque agora e descubra a diferença.</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <a href="#contacto" className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-gold)] hover:brightness-110 transition">Agendar Consulta <ArrowRight size={16} /></a>
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-medium text-white hover:bg-white/10 transition"><MessageCircle size={16} /> WhatsApp</a>
+          <a href="#contacto" className="inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-gold)] hover:brightness-110 transition">Agendar Consulta <ArrowRight size={16} /></a>
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/5 px-8 py-4 text-sm font-medium text-white hover:bg-white/10 transition"><MessageCircle size={16} /> WhatsApp</a>
         </div>
       </div>
     </section>

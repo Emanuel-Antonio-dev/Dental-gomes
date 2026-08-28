@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import teamImg from "@/assets/team.png";
-import teamImg2 from "@/assets/hero3.png";
+import teamImg2 from "@/assets/hero4.png";
 import { SectionTitle, fadeUp } from "../primitives";
 
 export function Team() {

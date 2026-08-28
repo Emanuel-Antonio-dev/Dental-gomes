@@ -5,7 +5,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-import teamHero from "@/assets/hero3.png";
+import teamHero from "@/assets/hero4.png";
 import { WA } from "../primitives";
 
 export function Hero() {
@@ -129,9 +129,11 @@ export function Hero() {
               text-5xl
               leading-[0.98]
               tracking-[-0.025em]
+              mt-25
               text-white
               sm:text-6xl
               md:text-7xl
+              md:mt-0
               lg:text-[76px]
             "
           >
@@ -211,7 +213,7 @@ export function Hero() {
                 inline-flex
                 items-center
                 gap-2
-                rounded-full
+                rounded-md
                 bg-primary
                 px-7
                 py-3.5
@@ -242,7 +244,7 @@ export function Hero() {
                 className="
                   absolute
                   -inset-1
-                  rounded-full
+                  rounded-md
                   bg-gold/20
                   blur-xl
                   opacity-0
@@ -261,7 +263,7 @@ export function Hero() {
                 inline-flex
                 items-center
                 gap-2
-                rounded-full
+                rounded-md
                 border
                 border-white/25
                 bg-white/[0.06]
