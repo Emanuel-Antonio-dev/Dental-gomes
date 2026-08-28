@@ -194,7 +194,7 @@ export function Hero() {
               flex
               flex-wrap
               items-center
-              justify-center       /* centraliza em mobile */
+              justify-start       /* centraliza em mobile */
               gap-3
               md:justify-start     /* volta à esquerda em desktop */
             "
