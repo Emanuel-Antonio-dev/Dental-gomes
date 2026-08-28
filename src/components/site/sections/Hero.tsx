@@ -1,9 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  MessageCircle,
-  ChevronDown,
-} from "lucide-react";
+import { ArrowRight, MessageCircle, ChevronDown } from "lucide-react";
 
 import teamHero from "@/assets/hero4.png";
 import { WA } from "../primitives";
@@ -28,48 +24,45 @@ export function Hero() {
             absolute inset-0
             h-full w-full
             object-cover
-            object-[80%_center]
+            object-[75%_center]   /* mobile: foca mais à direita, evitando rostos no texto */
             scale-[1.02]
-            md:object-[60%_center]
-            
+            md:object-[55%_center] /* desktop: mais centrado para mostrar a equipa */
           "
         />
 
         {/* 
-          Gradiente principal:
-          - muito forte à esquerda para garantir leitura
-          - desaparece progressivamente sobre a equipa
+          Gradiente principal – mais suave e com transição mais rápida,
+          para não encobrir demasiado a imagem.
         */}
         <div
           className="
             absolute inset-0
             bg-[linear-gradient(90deg,
-              rgba(4,18,52,1)_0%,
-              rgba(4,18,52,0.98)_25%,
-              rgba(4,18,52,0.82)_42%,
-              rgba(4,18,52,0.35)_58%,
-              rgba(4,18,52,0)_78%
+              rgba(4,18,52,0.92)_0%,
+              rgba(4,18,52,0.75)_30%,
+              rgba(4,18,52,0.4)_55%,
+              rgba(4,18,52,0.1)_75%,
+              transparent_90%
             )]
           "
         />
 
         {/* 
-          Pequeno reforço vertical para manter a navbar
-          integrada com a hero.
+          Gradiente vertical – mantém a navbar integrada e escurece a parte inferior.
         */}
         <div
           className="
             absolute inset-0
             bg-[linear-gradient(180deg,
-              rgba(3,15,40,0.45)_0%,
-              transparent_20%,
-              transparent_75%,
-              rgba(3,15,40,0.35)_100%
+              rgba(3,15,40,0.4)_0%,
+              transparent_25%,
+              transparent_70%,
+              rgba(3,15,40,0.5)_100%
             )]
           "
         />
 
-        {/* Glow dourado muito subtil */}
+        {/* Glow dourado subtil – inalterado */}
         <div
           className="
             absolute inset-0
@@ -93,9 +86,10 @@ export function Hero() {
           container-lux
           flex min-h-dvh
           items-center
-          pb-20
-          pt-32
+          pb-16
+          pt-24        /* reduzido para evitar espaço a mais em mobile */
           md:pb-24
+          md:pt-32
         "
       >
         <motion.div
@@ -111,13 +105,14 @@ export function Hero() {
             lg:max-w-[560px]
           "
         >
-          {/* Eyebrow */}
+          {/* Eyebrow – pode ser usado para ícone ou selo */}
           <motion.div
             initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.15, duration: 0.7 }}
             className="mb-5 flex items-center gap-3"
           >
+            {/* Se tiver algo, coloque aqui */}
           </motion.div>
 
           {/* =================================================
@@ -129,17 +124,15 @@ export function Hero() {
               text-5xl
               leading-[0.98]
               tracking-[-0.025em]
-              mt-25
               text-white
               sm:text-6xl
               md:text-7xl
-              md:mt-0
               lg:text-[76px]
+              mt-0           /* removido mt-25 */
             "
           >
             Damos vida
             <br />
-
             ao seu{" "}
             <span className="relative inline-block">
               <span className="text-gradient-gold italic">
@@ -176,7 +169,7 @@ export function Hero() {
               max-w-[500px]
               text-base
               leading-relaxed
-              text-white/75
+              text-white/80    /* ligeiramente mais claro para melhor contraste */
               md:text-[17px]
             "
           >
@@ -187,7 +180,7 @@ export function Hero() {
           </p>
 
           {/* =================================================
-              CTA
+              CTA – botões centralizados em mobile
               ================================================= */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -201,7 +194,9 @@ export function Hero() {
               flex
               flex-wrap
               items-center
+              justify-center       /* centraliza em mobile */
               gap-3
+              md:justify-start     /* volta à esquerda em desktop */
             "
           >
             {/* Primary */}
@@ -280,60 +275,11 @@ export function Hero() {
               "
             >
               <MessageCircle size={16} />
-
               <span>Falar no WhatsApp</span>
             </a>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* =====================================================
-          SCROLL INDICATOR
-          ===================================================== */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          delay: 1.4,
-          duration: 1,
-        }}
-        className="
-          absolute
-          bottom-8
-          left-1/2
-          z-10
-          flex
-          -translate-x-1/2
-          flex-col
-          items-center
-          gap-2
-          text-white/35
-        "
-      >
-        <span
-          className="
-            text-[9px]
-            uppercase
-            tracking-[0.35em]
-          "
-        >
-          Explore
-        </span>
-
-        <motion.div
-          animate={{ y: [0, 7, 0] }}
-          transition={{
-            repeat: Infinity,
-            duration: 2,
-            ease: "easeInOut",
-          }}
-        >
-          <ChevronDown
-            size={18}
-            strokeWidth={1.5}
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

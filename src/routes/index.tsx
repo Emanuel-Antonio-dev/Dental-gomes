@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
+import hero from "@/assets/hero4.png";
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/sections/Hero";
 import { About } from "@/components/site/sections/About";
@@ -47,7 +47,7 @@ function LandingPage() {
         <FinalCTA />
       </main>
       <Footer />
-      <FloatingWA />
+      {/* <FloatingWA /> */}
     </div>
   );
 }
