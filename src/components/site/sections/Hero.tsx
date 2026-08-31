@@ -12,39 +12,64 @@ export function Hero() {
         relative
         min-h-dvh
         overflow-hidden
-
-        bg-[image:var(--hero-image)]
-        bg-no-repeat
-        bg-cover
-        bg-[position:74%_top]
-
-        md:bg-[position:55%_center]
+        bg-[#0d0d0db8]
       "
-      style={
-        {
-          "--hero-image": `url(${teamHero})`,
-        } as React.CSSProperties
-      }
     >
       {/* =====================================================
-          SUBTLE OVERLAY
-          Apenas melhora a leitura sem criar um fade artificial.
+          HERO IMAGE
           ===================================================== */}
+
       <div
+        aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          inset-0
+          inset-x-0
+          top-0
           z-0
+
+          h-[68svh]
+
+          bg-[image:var(--hero-image)]
+          bg-no-repeat
+          bg-cover
+          bg-[position:74%_top]
+
+          md:inset-0
+          md:h-full
+          md:bg-[position:55%_center]
+        "
+        style={
+          {
+            "--hero-image": `url(${teamHero})`,
+          } as React.CSSProperties
+        }
+      />
+
+      {/* =====================================================
+          IMAGE OVERLAY
+          ===================================================== */}
+
+      <div
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-0
+          z-[1]
+          h-[68svh]
 
           bg-[linear-gradient(
             90deg,
-            rgba(3,15,40,0.72)_0%,
-            rgba(3,15,40,0.42)_28%,
-            rgba(3,15,40,0.08)_55%,
-            transparent_78%
+            rgba(3,15,40,0.58)_0%,
+            rgba(3,15,40,0.25)_45%,
+            rgba(3,15,40,0.04)_75%,
+            transparent_100%
           )]
 
+          md:inset-0
+          md:h-full
           md:bg-[linear-gradient(
             90deg,
             rgba(3,15,40,0.88)_0%,
@@ -57,35 +82,46 @@ export function Hero() {
       />
 
       {/* =====================================================
-          MOBILE BOTTOM BLEND
-          Não é um fade da imagem: é a própria cor da Hero
-          continuando abaixo da área visual da fotografia.
+          MOBILE IMAGE → BACKGROUND TRANSITION
+
+          A fotografia termina visualmente antes do final
+          da Hero e faz uma transição suave para o fundo.
           ===================================================== */}
+
       <div
-        className="
-          pointer-events-none
-          absolute
-          inset-x-0
-          bottom-0
-          z-0
-          h-[38svh]
+  aria-hidden="true"
+  className="
+    pointer-events-none
+    absolute
+    inset-x-0
+    top-[40svh]
+    z-[2]
+    h-[32svh]
 
+    bg-gradient-to-b
+    from-transparent
+    via-[#0D0D0D]/75
+    to-[#0D0D0D]
 
-          md:hidden
-        "
-      />
+    md:hidden
+  "
+/>
 
       {/* =====================================================
           GOLD GLOW
           ===================================================== */}
+
       <div
+        aria-hidden="true"
         className="
           pointer-events-none
           absolute
           inset-0
-          z-0
-          opacity-40
+          z-[1]
+
+          opacity-30
           mix-blend-screen
+
           bg-[radial-gradient(
             700px_500px_at_72%_35%,
             rgba(210,165,75,0.12),
@@ -95,18 +131,21 @@ export function Hero() {
       />
 
       {/* =====================================================
-          MAIN CONTENT
+          CONTENT
           ===================================================== */}
+
       <div
         className="
           relative
           z-10
           container-lux
+
           flex
           min-h-dvh
           items-end
+
           pb-10
-          pt-[50svh]
+          pt-[54svh]
 
           md:items-center
           md:pb-24
@@ -129,6 +168,7 @@ export function Hero() {
           {/* =================================================
               TITLE
               ================================================= */}
+
           <h1
             className="
               font-serif
@@ -174,15 +214,18 @@ export function Hero() {
           {/* =================================================
               DESCRIPTION
               ================================================= */}
+
           <p
             className="
               mt-5
               max-w-[500px]
+
               text-[15px]
               leading-6
               text-white/75
 
               sm:text-base
+
               md:mt-6
               md:text-[17px]
               md:leading-relaxed
@@ -197,6 +240,7 @@ export function Hero() {
           {/* =================================================
               CTA
               ================================================= */}
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -212,6 +256,7 @@ export function Hero() {
               gap-3
 
               sm:flex-row
+
               md:mt-9
               md:w-auto
               md:flex-wrap
@@ -219,26 +264,33 @@ export function Hero() {
             "
           >
             {/* PRIMARY CTA */}
+
             <a
               href="/#contacto"
               className="
                 group
                 relative
+
                 inline-flex
                 min-h-[54px]
                 w-full
                 items-center
                 justify-center
                 gap-2
+
                 rounded-md
+
                 bg-primary
                 px-7
                 py-3.5
+
                 text-sm
                 font-semibold
                 text-primary-foreground
+
                 shadow-2xl
                 shadow-gold/20
+
                 transition-all
                 duration-300
 
@@ -261,6 +313,7 @@ export function Hero() {
               />
 
               <span
+                aria-hidden="true"
                 className="
                   absolute
                   -inset-1
@@ -275,6 +328,7 @@ export function Hero() {
             </a>
 
             {/* WHATSAPP */}
+
             <a
               href={WA}
               target="_blank"
@@ -286,16 +340,21 @@ export function Hero() {
                 items-center
                 justify-center
                 gap-2
+
                 rounded-md
                 border
                 border-white/25
+
                 bg-white/[0.06]
                 px-7
                 py-3.5
+
                 text-sm
                 font-medium
                 text-white
+
                 backdrop-blur-md
+
                 transition-all
                 duration-300
 
@@ -315,4 +374,3 @@ export function Hero() {
     </section>
   );
 }
-

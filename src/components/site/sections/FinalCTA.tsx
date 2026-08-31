@@ -16,8 +16,109 @@ export function FinalCTA() {
         </h2>
         <p className="mt-6 text-lg text-muted-foreground">Uma equipa premium à sua espera em Luanda. Marque agora e descubra a diferença.</p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <a href="#contacto" className="inline-flex items-center gap-2 rounded-md bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-gold)] hover:brightness-110 transition">Agendar Consulta <ArrowRight size={16} /></a>
-          <a href={WA} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md border border-white/20 bg-white/5 px-8 py-4 text-sm font-medium text-white hover:bg-white/10 transition"><MessageCircle size={16} /> WhatsApp</a>
+<a
+              href="/#contacto"
+              className="
+                group
+                relative
+
+                inline-flex
+                min-h-[54px]
+                w-full
+                items-center
+                justify-center
+                gap-2
+
+                rounded-md
+
+                bg-primary
+                px-7
+                py-3.5
+
+                text-sm
+                font-semibold
+                text-primary-foreground
+
+                shadow-2xl
+                shadow-gold/20
+
+                transition-all
+                duration-300
+
+                hover:scale-[1.03]
+                hover:shadow-gold/40
+                active:scale-[0.98]
+
+                sm:w-auto
+              "
+            >
+              <span>Agendar Consulta</span>
+
+              <ArrowRight
+                size={16}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
+              />
+
+              <span
+                aria-hidden="true"
+                className="
+                  absolute
+                  -inset-1
+                  rounded-md
+                  bg-gold/20
+                  blur-xl
+                  opacity-0
+                  transition-opacity
+                  group-hover:opacity-100
+                "
+              />
+            </a>
+
+            {/* WHATSAPP */}
+
+            <a
+              href={WA}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                min-h-[54px]
+                w-full
+                items-center
+                justify-center
+                gap-2
+
+                rounded-md
+                border
+                border-white/25
+
+                bg-white/[0.06]
+                px-7
+                py-3.5
+
+                text-sm
+                font-medium
+                text-white
+
+                backdrop-blur-md
+
+                transition-all
+                duration-300
+
+                hover:border-white/40
+                hover:bg-white/10
+
+                sm:w-auto
+              "
+            >
+              <MessageCircle size={16} />
+
+              <span>Falar no WhatsApp</span>
+            </a>
         </div>
       </div>
     </section>
